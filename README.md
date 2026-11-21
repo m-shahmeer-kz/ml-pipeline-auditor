@@ -6,7 +6,7 @@ Works with Claude Code, Codex CLI, Cursor, Gemini CLI and other agents that use 
 
 **[See the full page with the demo and results ↗](https://m-shahmeer-kz.github.io/ml-pipeline-auditor/)**
 
-> **Get the skill:** coming soon on [Agensi](https://www.agensi.io). This repository shows what the skill does and how it was tested. The skill itself (instructions, analysers and reference library) is sold there.
+> **[Get the skill on Agensi ↗](https://www.agensi.io/creators/muhammad-shahmeer)** ($12, one-time, includes future updates). This repository shows what the skill does and how it was tested. The skill itself (instructions, analysers and reference library) is sold there.
 
 ---
 

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 R = json.loads((ROOT / "results" / "results.json").read_text())
 REV = json.loads((ROOT / "results" / "manual_review.json").read_text())
 REPORT = (ROOT / "examples" / "sample-report.md").read_text()
-AGENSI_URL = ""  # filled in when the Agensi listing is live
+AGENSI_URL = "https://www.agensi.io/creators/muhammad-shahmeer"  # storefront; swap for the direct listing URL once approved
 GH = "https://github.com/m-shahmeer-kz/ml-pipeline-auditor"
 e = html.escape
 
@@ -20,7 +20,7 @@ rw = R["real_world"]
 hold = R["holdout_v100"]
 files_total = sum(v["files_scanned"] for v in rw.values())
 
-buy = (f'<a class="btn solid" href="{AGENSI_URL}" target="_blank" rel="noopener">Get it on Agensi ↗</a>'
+buy = (f'<a class="btn solid" href="{AGENSI_URL}" target="_blank" rel="noopener">Get it on Agensi · $12 ↗</a>'
        if AGENSI_URL else '<span class="btn solid off">Coming soon on Agensi</span>')
 
 rows = ""
