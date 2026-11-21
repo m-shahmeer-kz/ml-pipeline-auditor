@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 R = json.loads((ROOT / "results" / "results.json").read_text())
 REV = json.loads((ROOT / "results" / "manual_review.json").read_text())
 REPORT = (ROOT / "examples" / "sample-report.md").read_text()
-AGENSI_URL = "https://www.agensi.io/creators/muhammad-shahmeer"  # storefront; swap for the direct listing URL once approved
+AGENSI_URL = "https://www.agensi.io/skills/ml-pipeline-auditor-is-your-model-s-accuracy-real"
 GH = "https://github.com/m-shahmeer-kz/ml-pipeline-auditor"
 e = html.escape
 
@@ -56,6 +56,14 @@ page = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ML Pipeline Auditor · is your model's accuracy real?</title>
 <meta name="description" content="AI-agent skill that audits ML code and notebooks for data leakage, test-set misuse, wrong metrics and training bugs, with a scored report and fixes.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ML Pipeline Auditor · is your model's accuracy real?">
+<meta property="og:description" content="AI-agent skill that audits ML code and notebooks for data leakage, test-set misuse, wrong metrics and training bugs. Tested results and sample reports.">
+<meta property="og:url" content="https://m-shahmeer-kz.github.io/ml-pipeline-auditor/">
+<meta property="og:image" content="https://m-shahmeer-kz.github.io/ml-pipeline-auditor/assets/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/logo.png">
 <style>
 :root{{--bg:#060607;--card:#111113;--line:#26262b;--text:#f2f2f3;--mute:#9a9aa2;--ok:#7ee2a8;--bad:#ff8a8a}}
 *{{box-sizing:border-box}}html{{-webkit-text-size-adjust:100%}}
