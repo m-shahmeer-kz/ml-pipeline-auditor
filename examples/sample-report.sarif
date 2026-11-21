@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "mlaudit",
+          "version": "1.0.1",
+          "informationUri": "https://github.com/m-shahmeer-kz/ml-pipeline-auditor",
+          "rules": [
+            {
+              "id": "MLA102",
+              "name": "Preprocessingstatisticscomputedonthefulldatasetbeforethesplit",
+              "shortDescription": {
+                "text": "Preprocessing statistics computed on the full dataset before the split"
+              },
+              "fullDescription": {
+                "text": "Scaler/imputer/PCA/vectorizer statistics include the test rows, so the test set is no longer unseen."
+              },
+              "help": {
+                "text": "Fit the transformer on the training data only (or inside a Pipeline) and only .transform() the test data."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "category": "leakage"
+              }
+            },
+            {
+              "id": "MLA104",
+              "name": "Resampling(SMOTE/over/under-sampling)beforethesplitoroutsidecross-validation",
+              "shortDescription": {
+                "text": "Resampling (SMOTE/over/under-sampling) before the split or outside cross-validation"
+              },
+              "fullDescription": {
+                "text": "Synthetic or duplicated rows end up in both train and test folds, which inflates recall/F1/AUC."
+              },
+              "help": {
+                "text": "Resample only the training part, e.g. imblearn.pipeline.Pipeline([('smote', SMOTE()), ('model', clf)]) inside CV."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "category": "leakage"
+              }
+            },
+            {
+              "id": "MLA106",
+              "name": "Target-basedfeature(target/meanencoding)computedonthefulldataset",
+              "shortDescription": {
+                "text": "Target-based feature (target/mean encoding) computed on the full dataset"
+              },
+              "fullDescription": {
+                "text": "Each row's feature contains its own label, so the model reads the answer."
+              },
+              "help": {
+                "text": "Compute encodings inside CV on training folds only (sklearn TargetEncoder in a Pipeline uses cross-fitting)."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "category": "leakage"
+              }
+            },
+            {
+              "id": "MLA108",
+              "name": "Missingvaluesfilledwithfull-datasetstatisticsbeforethesplit",
+              "shortDescription": {
+                "text": "Missing values filled with full-dataset statistics before the split"
+              },
+              "fullDescription": {
+                "text": "fillna(df.mean()) uses test rows to compute the fill value."
+              },
+              "help": {
+                "text": "Use SimpleImputer inside a Pipeline, or compute the statistic on the training split only."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "category": "leakage"
+              }
+            },
+            {
+              "id": "MLA201",
+              "name": "Testsetusedtochoosehyperparametersormodels",
+              "shortDescription": {
+                "text": "Test set used to choose hyperparameters or models"
+              },
+              "fullDescription": {
+                "text": "Picking the best setting by its test score makes the test score optimistic; it is no longer an unbiased estimate."
+              },
+              "help": {
+                "text": "Tune with cross-validation or a separate validation set; touch the test set once, at the end."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "category": "validation"
+              }
+            },
+            {
+              "id": "MLA301",
+              "name": "Probabilitymetriccomputedfromhardclasslabels",
+              "shortDescription": {
+                "text": "Probability metric computed from hard class labels"
+              },
+              "fullDescription": {
+                "text": "roc_auc/average_precision/log_loss need scores or probabilities; with .predict() labels the number is wrong."
+              },
+              "help": {
+                "text": "Use model.predict_proba(X)[:, 1] or model.decision_function(X)."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "category": "metrics"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "MLA106",
+          "level": "error",
+          "message": {
+            "text": "Target encoding (mean of target 'survived' per group) computed before train_test_split (line 32). Fix: Compute encodings inside CV on training folds only (sklearn TargetEncoder in a Pipeline uses cross-fitting)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "leaky_titanic.py"
+                },
+                "region": {
+                  "startLine": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "confidence": "high"
+          }
+        },
+        {
+          "ruleId": "MLA104",
+          "level": "error",
+          "message": {
+            "text": "SMOTE applied to 'X' (all rows) before train_test_split (line 32): resampled rows appear in both train and test. Fix: Resample only the training part, e.g. imblearn.pipeline.Pipeline([('smote', SMOTE()), ('model', clf)]) inside CV."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "leaky_titanic.py"
+                },
+                "region": {
+                  "startLine": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "confidence": "high"
+          }
+        },
+        {
+          "ruleId": "MLA201",
+          "level": "error",
+          "message": {
+            "text": "A model/parameter is chosen inside this loop by its score on test data. Fix: Tune with cross-validation or a separate validation set; touch the test set once, at the end."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "leaky_titanic.py"
+                },
+                "region": {
+                  "startLine": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "confidence": "high"
+          }
+        },
+        {
+          "ruleId": "MLA108",
+          "level": "warning",
+          "message": {
+            "text": "missing values filled with full-data statistics before train_test_split (line 32). Fix: Use SimpleImputer inside a Pipeline, or compute the statistic on the training split only."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "leaky_titanic.py"
+                },
+                "region": {
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "properties": {
+            "confidence": "high"
+          }
+        },
+        {
+          "ruleId": "MLA108",
+          "level": "warning",
+          "message": {
+            "text": "missing values filled with full-data statistics before train_test_split (line 32). Fix: Use SimpleImputer inside a Pipeline, or compute the statistic on the training split only."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "leaky_titanic.py"
+                },
+                "region": {
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "properties": {
+            "confidence": "high"
+          }
+        },
+        {
+          "ruleId": "MLA108",
+          "level": "warning",
+          "message": {
+            "text": "missing values filled with full-data statistics before train_test_split (line 32). Fix: Use SimpleImputer inside a Pipeline, or compute the statistic on the training split only."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "leaky_titanic.py"
+                },
+                "region": {
+                  "startLine": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "confidence": "high"
+          }
+        },
+        {
+          "ruleId": "MLA102",
+          "level": "warning",
+          "message": {
+            "text": "StandardScaler fitted on 'X' (all rows) before train_test_split (line 32). Fix: Fit the transformer on the training data only (or inside a Pipeline) and only .transform() the test data."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "leaky_titanic.py"
+                },
+                "region": {
+                  "startLine": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "confidence": "high"
+          }
+        },
+        {
+          "ruleId": "MLA301",
+          "level": "warning",
+          "message": {
+            "text": "roc_auc_score() receives hard labels from .predict(); use predict_proba/decision_function. Fix: Use model.predict_proba(X)[:, 1] or model.decision_function(X)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "leaky_titanic.py"
+                },
+                "region": {
+                  "startLine": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "confidence": "high"
+          }
+        }
+      ]
+    }
+  ]
+}

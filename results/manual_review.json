@@ -1,0 +1,169 @@
+{
+ "sklearn": {
+  "repo": "https://github.com/scikit-learn/scikit-learn",
+  "commit": "5e9184e53cd3bfd5a068cb1cb96c5ad27eff8092",
+  "paths": [
+   "examples"
+  ],
+  "set": "development",
+  "reviews": [
+   {
+    "file": "examples/applications/plot_digits_denoising.py",
+    "rule": "MLA102",
+    "verdict": "correct",
+    "note": "MinMaxScaler fitted on all digits before train_test_split (small, unsupervised leak)."
+   },
+   {
+    "file": "examples/neighbors/plot_digits_kde_sampling.py",
+    "rule": "MLA102",
+    "verdict": "correct",
+    "note": "PCA fitted on all digits, then GridSearchCV."
+   },
+   {
+    "file": "examples/svm/plot_rbf_parameters.py",
+    "rule": "MLA102",
+    "verdict": "correct",
+    "note": "Scaler fitted on all data before GridSearchCV; the authors' own comment says 'We are cheating a bit in this example in scaling all of the data'."
+   },
+   {
+    "file": "examples/gaussian_process/plot_gpc.py",
+    "rule": "MLA203",
+    "verdict": "intentional",
+    "note": "Teaching demo reports training accuracy on purpose."
+   },
+   {
+    "file": "examples/linear_model/plot_logistic_l1_l2_sparsity.py",
+    "rule": "MLA203",
+    "verdict": "intentional",
+    "note": "Sparsity demo prints the training score."
+   },
+   {
+    "file": "examples/linear_model/plot_logistic_multinomial.py",
+    "rule": "MLA203",
+    "verdict": "intentional",
+    "note": "Decision-boundary demo prints the training accuracy."
+   }
+  ]
+ },
+ "handson-ml3": {
+  "repo": "https://github.com/ageron/handson-ml3",
+  "commit": "ef1c9f5ab11083584635b9b3a7846f49c58a6084",
+  "paths": [
+   "*.ipynb"
+  ],
+  "set": "development",
+  "reviews": [
+   {
+    "file": "17_autoencoders_gans_and_diffusion_models.ipynb",
+    "rule": "MLA202",
+    "verdict": "correct",
+    "note": "Denoising autoencoder uses validation_data=(X_test, X_test) while the rest of the book uses X_valid."
+   }
+  ]
+ },
+ "ML-For-Beginners": {
+  "repo": "https://github.com/microsoft/ML-For-Beginners",
+  "commit": "8e5c0dfffdb56181450363f9ccd880bc69737ae8",
+  "paths": [
+   "all .py/.ipynb except translations"
+  ],
+  "set": "hold-out (run once with the frozen v1.0.0)",
+  "reviews": [
+   {
+    "file": "2-Regression/1-Tools/solution/notebook.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "2-Regression/4-Logistic/solution/notebook.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "5-Clustering/2-K-Means/solution/notebook.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "8-Reinforcement/1-QLearning/notebook.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "8-Reinforcement/2-Gym/notebook.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "PyTorch_Fundamentals.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "2-Regression/3-Linear/solution/notebook.ipynb",
+    "rule": "MLA109",
+    "count": 3,
+    "verdict": "debatable",
+    "note": "Pumpkin prices by DayOfYear split at random: the pattern is there, harm depends on whether the goal is forecasting."
+   }
+  ]
+ },
+ "PythonDataScienceHandbook": {
+  "repo": "https://github.com/jakevdp/PythonDataScienceHandbook",
+  "commit": "d66231454ef753818dc9213c9b5942e067266966",
+  "paths": [
+   "notebooks"
+  ],
+  "set": "hold-out (run once with the frozen v1.0.0)",
+  "reviews": [
+   {
+    "file": "notebooks/05.08-Random-Forests.ipynb",
+    "rule": "MLA302",
+    "verdict": "correct",
+    "note": "metrics.classification_report(ypred, ytest): arguments swapped, so precision and recall per class are exchanged."
+   },
+   {
+    "file": "notebooks/05.11-K-Means.ipynb",
+    "rule": "MLA203",
+    "verdict": "false alarm",
+    "note": "Clustering: predicting on the fitted data is normal. Fixed in v1.0.1 (unsupervised fits are skipped)."
+   },
+   {
+    "file": "notebooks/02.01-Understanding-Data-Types.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "notebooks/03.07-Merge-and-Join.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "notebooks/04.08-Multiple-Subplots.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "notebooks/05.08-Random-Forests.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   },
+   {
+    "file": "notebooks/06.00-Figure-Code.ipynb",
+    "rule": "MLA403",
+    "verdict": "correct",
+    "note": "Execution counts show out-of-order or skipped cells."
+   }
+  ]
+ }
+}

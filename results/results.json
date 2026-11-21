@@ -1,0 +1,616 @@
+{
+ "tool_version": "1.0.1",
+ "rules": 26,
+ "python": "3.13.18",
+ "corpus": {
+  "cases": 44,
+  "cases_with_problems": 29,
+  "clean_cases": 15,
+  "planted_problems": 31,
+  "caught": 31,
+  "unexpected_findings": 0,
+  "clean_cases_with_any_finding": 0,
+  "rules_covered": 24,
+  "per_rule": {
+   "MLA101": [
+    2,
+    2
+   ],
+   "MLA102": [
+    3,
+    3
+   ],
+   "MLA103": [
+    1,
+    1
+   ],
+   "MLA104": [
+    1,
+    1
+   ],
+   "MLA105": [
+    2,
+    2
+   ],
+   "MLA106": [
+    1,
+    1
+   ],
+   "MLA107": [
+    1,
+    1
+   ],
+   "MLA108": [
+    1,
+    1
+   ],
+   "MLA109": [
+    1,
+    1
+   ],
+   "MLA110": [
+    1,
+    1
+   ],
+   "MLA201": [
+    2,
+    2
+   ],
+   "MLA202": [
+    2,
+    2
+   ],
+   "MLA402": [
+    2,
+    2
+   ],
+   "MLA203": [
+    1,
+    1
+   ],
+   "MLA204": [
+    1,
+    1
+   ],
+   "MLA205": [
+    1,
+    1
+   ],
+   "MLA206": [
+    1,
+    1
+   ],
+   "MLA301": [
+    1,
+    1
+   ],
+   "MLA302": [
+    1,
+    1
+   ],
+   "MLA303": [
+    1,
+    1
+   ],
+   "MLA401": [
+    1,
+    1
+   ],
+   "MLA501": [
+    1,
+    1
+   ],
+   "MLA502": [
+    1,
+    1
+   ],
+   "MLA503": [
+    1,
+    1
+   ]
+  },
+  "details": [
+   {
+    "case": "clean_reference_pipeline.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "clean_torch_full.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla101_clean_pipeline.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla101_rfe_object_then_transform.py",
+    "expected": [
+     "MLA101"
+    ],
+    "found": [
+     "MLA101"
+    ]
+   },
+   {
+    "case": "mla101_selectkbest_before_split.py",
+    "expected": [
+     "MLA101"
+    ],
+    "found": [
+     "MLA101"
+    ]
+   },
+   {
+    "case": "mla102_clean_scaler_on_train.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla102_imputer_df_column.py",
+    "expected": [
+     "MLA102"
+    ],
+    "found": [
+     "MLA102"
+    ]
+   },
+   {
+    "case": "mla102_scaler_before_split.py",
+    "expected": [
+     "MLA102"
+    ],
+    "found": [
+     "MLA102"
+    ]
+   },
+   {
+    "case": "mla102_tfidf_then_cv.py",
+    "expected": [
+     "MLA102"
+    ],
+    "found": [
+     "MLA102"
+    ]
+   },
+   {
+    "case": "mla103_fit_transform_on_test.py",
+    "expected": [
+     "MLA103"
+    ],
+    "found": [
+     "MLA103"
+    ]
+   },
+   {
+    "case": "mla104_clean_smote_train_only.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla104_smote_before_split.py",
+    "expected": [
+     "MLA104"
+    ],
+    "found": [
+     "MLA104"
+    ]
+   },
+   {
+    "case": "mla105_clean_pipeline_cv.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla105_selection_then_gridsearch.py",
+    "expected": [
+     "MLA105"
+    ],
+    "found": [
+     "MLA105"
+    ]
+   },
+   {
+    "case": "mla105_smote_then_cv.py",
+    "expected": [
+     "MLA105"
+    ],
+    "found": [
+     "MLA105"
+    ]
+   },
+   {
+    "case": "mla106_target_mean_encoding.py",
+    "expected": [
+     "MLA106"
+    ],
+    "found": [
+     "MLA106"
+    ]
+   },
+   {
+    "case": "mla107_clean_target_dropped.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla107_target_left_in_x.py",
+    "expected": [
+     "MLA107"
+    ],
+    "found": [
+     "MLA107"
+    ]
+   },
+   {
+    "case": "mla108_clean_fill_from_train.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla108_fillna_mean.py",
+    "expected": [
+     "MLA108"
+    ],
+    "found": [
+     "MLA108"
+    ]
+   },
+   {
+    "case": "mla109_clean_time_cut.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla109_timeseries_random_split.py",
+    "expected": [
+     "MLA109"
+    ],
+    "found": [
+     "MLA109"
+    ]
+   },
+   {
+    "case": "mla110_clean_groupkfold.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla110_patient_id_random_kfold.py",
+    "expected": [
+     "MLA110"
+    ],
+    "found": [
+     "MLA110"
+    ]
+   },
+   {
+    "case": "mla201_clean_validation_set.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla201_list_then_argmax.py",
+    "expected": [
+     "MLA201"
+    ],
+    "found": [
+     "MLA201"
+    ]
+   },
+   {
+    "case": "mla201_tuning_loop_on_test.py",
+    "expected": [
+     "MLA201"
+    ],
+    "found": [
+     "MLA201"
+    ]
+   },
+   {
+    "case": "mla202_keras_validation_test.py",
+    "expected": [
+     "MLA202",
+     "MLA402"
+    ],
+    "found": [
+     "MLA202",
+     "MLA402"
+    ]
+   },
+   {
+    "case": "mla202_xgb_eval_set_test.py",
+    "expected": [
+     "MLA202"
+    ],
+    "found": [
+     "MLA202"
+    ]
+   },
+   {
+    "case": "mla203_clean_clustering.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla203_train_only.py",
+    "expected": [
+     "MLA203"
+    ],
+    "found": [
+     "MLA203"
+    ]
+   },
+   {
+    "case": "mla204_fit_on_test.py",
+    "expected": [
+     "MLA204"
+    ],
+    "found": [
+     "MLA204"
+    ]
+   },
+   {
+    "case": "mla205_threshold_on_test.py",
+    "expected": [
+     "MLA205"
+    ],
+    "found": [
+     "MLA205"
+    ]
+   },
+   {
+    "case": "mla206_no_stratify.py",
+    "expected": [
+     "MLA206"
+    ],
+    "found": [
+     "MLA206"
+    ]
+   },
+   {
+    "case": "mla301_auc_from_labels.py",
+    "expected": [
+     "MLA301"
+    ],
+    "found": [
+     "MLA301"
+    ]
+   },
+   {
+    "case": "mla302_swapped_args.py",
+    "expected": [
+     "MLA302"
+    ],
+    "found": [
+     "MLA302"
+    ]
+   },
+   {
+    "case": "mla303_accuracy_only.py",
+    "expected": [
+     "MLA303"
+    ],
+    "found": [
+     "MLA303"
+    ]
+   },
+   {
+    "case": "mla401_clean_global_seed.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla401_no_seeds.py",
+    "expected": [
+     "MLA401"
+    ],
+    "found": [
+     "MLA401"
+    ]
+   },
+   {
+    "case": "mla501_clean_accumulation.py",
+    "expected": [],
+    "found": []
+   },
+   {
+    "case": "mla501_no_zero_grad.py",
+    "expected": [
+     "MLA402",
+     "MLA501"
+    ],
+    "found": [
+     "MLA402",
+     "MLA501"
+    ]
+   },
+   {
+    "case": "mla502_no_eval_mode.py",
+    "expected": [
+     "MLA502"
+    ],
+    "found": [
+     "MLA502"
+    ]
+   },
+   {
+    "case": "mla503_double_softmax.py",
+    "expected": [
+     "MLA503"
+    ],
+    "found": [
+     "MLA503"
+    ]
+   },
+   {
+    "case": "mla_ignore_comment.py",
+    "expected": [],
+    "found": []
+   }
+  ]
+ },
+ "real_world": {
+  "scikit-learn examples": {
+   "repo": "https://github.com/scikit-learn/scikit-learn",
+   "commit": "5e9184e53cd3bfd5a068cb1cb96c5ad27eff8092",
+   "set": "development",
+   "files_scanned": 282,
+   "unreadable_files": 0,
+   "score": 99,
+   "seconds": 1.53,
+   "findings_high_medium_now": 6,
+   "findings_low_now": 44,
+   "reviewed": 6,
+   "verdicts": {
+    "correct": 3,
+    "intentional": 3
+   },
+   "by_rule": {
+    "MLA203": 3,
+    "MLA102": 3,
+    "MLA401": 41,
+    "MLA303": 3
+   },
+   "notable": [
+    {
+     "file": "examples/applications/plot_digits_denoising.py",
+     "rule": "MLA102",
+     "verdict": "correct",
+     "note": "MinMaxScaler fitted on all digits before train_test_split (small, unsupervised leak)."
+    },
+    {
+     "file": "examples/neighbors/plot_digits_kde_sampling.py",
+     "rule": "MLA102",
+     "verdict": "correct",
+     "note": "PCA fitted on all digits, then GridSearchCV."
+    },
+    {
+     "file": "examples/svm/plot_rbf_parameters.py",
+     "rule": "MLA102",
+     "verdict": "correct",
+     "note": "Scaler fitted on all data before GridSearchCV; the authors' own comment says 'We are cheating a bit in this example in scaling all of the data'."
+    }
+   ]
+  },
+  "handson-ml3": {
+   "repo": "https://github.com/ageron/handson-ml3",
+   "commit": "ef1c9f5ab11083584635b9b3a7846f49c58a6084",
+   "set": "development",
+   "files_scanned": 28,
+   "unreadable_files": 0,
+   "score": 98,
+   "seconds": 1.43,
+   "findings_high_medium_now": 1,
+   "findings_low_now": 3,
+   "reviewed": 1,
+   "verdicts": {
+    "correct": 1
+   },
+   "by_rule": {
+    "MLA202": 1,
+    "MLA303": 3
+   },
+   "notable": [
+    {
+     "file": "17_autoencoders_gans_and_diffusion_models.ipynb",
+     "rule": "MLA202",
+     "verdict": "correct",
+     "note": "Denoising autoencoder uses validation_data=(X_test, X_test) while the rest of the book uses X_valid."
+    }
+   ]
+  },
+  "ML-For-Beginners": {
+   "repo": "https://github.com/microsoft/ML-For-Beginners",
+   "commit": "8e5c0dfffdb56181450363f9ccd880bc69737ae8",
+   "set": "hold-out (run once with the frozen v1.0.0)",
+   "files_scanned": 69,
+   "unreadable_files": 4,
+   "score": 95,
+   "seconds": 0.26,
+   "findings_high_medium_now": 9,
+   "findings_low_now": 5,
+   "reviewed": 9,
+   "verdicts": {
+    "correct": 6,
+    "debatable": 3
+   },
+   "by_rule": {
+    "MLA403": 6,
+    "MLA109": 3,
+    "MLA401": 5
+   },
+   "notable": []
+  },
+  "PythonDataScienceHandbook": {
+   "repo": "https://github.com/jakevdp/PythonDataScienceHandbook",
+   "commit": "d66231454ef753818dc9213c9b5942e067266966",
+   "set": "hold-out (run once with the frozen v1.0.0)",
+   "files_scanned": 68,
+   "unreadable_files": 0,
+   "score": 97,
+   "seconds": 0.63,
+   "findings_high_medium_now": 6,
+   "findings_low_now": 5,
+   "reviewed": 7,
+   "verdicts": {
+    "correct": 6,
+    "false alarm": 1
+   },
+   "by_rule": {
+    "MLA403": 5,
+    "MLA302": 1,
+    "MLA303": 1,
+    "MLA401": 4
+   },
+   "notable": [
+    {
+     "file": "notebooks/05.08-Random-Forests.ipynb",
+     "rule": "MLA302",
+     "verdict": "correct",
+     "note": "metrics.classification_report(ypred, ytest): arguments swapped, so precision and recall per class are exchanged."
+    },
+    {
+     "file": "notebooks/05.11-K-Means.ipynb",
+     "rule": "MLA203",
+     "verdict": "false alarm",
+     "note": "Clustering: predicting on the fitted data is normal. Fixed in v1.0.1 (unsupervised fits are skipped)."
+    }
+   ]
+  }
+ },
+ "impact_titanic": {
+  "leaky": {
+   "f1_mean": 0.991,
+   "f1_sd": 0.005,
+   "f1_min": 0.982,
+   "f1_max": 0.998,
+   "auc_reported_mean": 0.991
+  },
+  "fixed": {
+   "f1_mean": 0.749,
+   "f1_sd": 0.027,
+   "f1_min": 0.704,
+   "f1_max": 0.798,
+   "auc_mean": 0.871
+  },
+  "audit_leaky": 0,
+  "audit_fixed": 100,
+  "leaky_rules": [
+   "MLA102",
+   "MLA104",
+   "MLA106",
+   "MLA108",
+   "MLA201",
+   "MLA301"
+  ]
+ },
+ "holdout_v100": {
+  "reviewed_high_medium": 16,
+  "correct_or_debatable": 15,
+  "false_alarms": 1,
+  "false_alarms_after_fix": 0
+ }
+}
