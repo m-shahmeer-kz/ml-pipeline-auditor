@@ -75,7 +75,7 @@ results/    benchmark results and the manual verdict for every real-world findin
 docs/       the project page (GitHub Pages)
 ```
 
-The skill's source (instructions, analysers, 70 tests, reference library) is not public.
+The skill's source (instructions, analysers, 74 tests, reference library) is not public.
 
 ---
 
